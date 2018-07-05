@@ -1,9 +1,13 @@
 from django.urls import re_path
 from . import views
+import permission; permission.autodiscover()
+
+
 
 app_name = "posts"
 
 urlpatterns = [
+        #re_path('',(r'^admin/', include(admin.site.urls)),
         re_path(r'^$', views.home, name="home"),
         re_path(r'^staff/articles/$', views.all, name="all"),
         re_path(r'^staff/articles/new/$', views.new, name="new"),
