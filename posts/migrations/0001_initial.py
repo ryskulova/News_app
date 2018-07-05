@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('draft', models.BooleanField(default=False)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('locale'), models.CharField(max_length=30)
+                ('locale'), models.CharField(max_length=30),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, unique=True)),
             ],
         ),
