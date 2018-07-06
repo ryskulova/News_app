@@ -30,7 +30,7 @@ class SimpleTest(TestCase):
         
 
         self.first_article = Post.objects.create(
-            title="First Article", 
+            title="First Title",
             content="First Content",
             published=True,
             user=self.user,
@@ -38,7 +38,7 @@ class SimpleTest(TestCase):
             )
 
         self.second_article = Post.objects.create(
-            title="Second Article", 
+            title="Second Title",
             content="Second Content",
             published=True,
             user=self.user,

@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
 
     title = forms.CharField(
         required=True, 
-        label = "",
+        label = "Write a title...",
         widget=forms.TextInput(
             attrs={
             'class':'form-control',
@@ -29,7 +29,7 @@ class PostForm(forms.ModelForm):
     )
 
     content = forms.CharField(
-        label="",
+        label="Write a content...",
         widget=forms.Textarea(
             attrs={
                 'class':'form-control',
