@@ -15,20 +15,41 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name='News',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                #('published', models.BooleanField(default=False)),
-                ('title', models.CharField(max_length=200)),
+                ('author',models.ForeignKey (on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_AUTHOR_MODEL, unique=True)),
                 ('audience', models.EnumField(default = 1)),
                 ('image', models.CharField(max_length=200)),
-                ('content', models.CharField(max_length=30000)),
                 ('disabled', models.BooleanField(default=False)),
-                #('updated', models.DateTimeField(auto_now=True)), #update func/button
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('locale'), models.CharField(max_length=30),
-                ('language'),models.EnumField(default = 1),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_AUTHOR_MODEL, unique=True)),
-            ],
+                ('locale'), models.CharField(default=1),
+
+                ],
         ),
+
     ]
+
+   operations = [
+       migrations.CreateModel(
+           name='NewsContent',
+           fields=[
+               ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+               ('title', models.CharField (max_length=200)),
+               ('content', models.CharField(max_length=30000)),
+               ('locale'), models.EnumField (default=1),
+               ('timestamp', models.DateTimeField(auto_now_add=True)),
+           ]
+       )
+   ]
+
+
+operations = [
+       migrations.CreateModel(
+           name='NewsLanguages',
+           fields=[
+               ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+               ('locale'), models.EnumField (default=1),
+               ]
+       )
+   ]

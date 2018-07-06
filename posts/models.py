@@ -8,16 +8,24 @@ from django.utils.dateformat import format
 
 # Create your models here.
 
-class Post(models.Model):
+class News(models.Model):
     author = models.ForeignKey(User, unique=False, on_delete=models.CASCADE)
-    #published = models.BooleanField(default=False, blank=True)
-    title = models.CharField(max_length=200)
     audience = models.EnumField(default=1)
-    image = models.CharField(max_length=200)
-    content = models.CharField(max_length=30000)
     disabled = models.BooleanField(default=False)
-    #updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=True, auto_now_add=True)
+    # published = models.BooleanField(default=False, blank=True)
+    # updated = models.DateTimeField(auto_now=True, auto_now_add=False) for auto-updating func/button
+
+
+class NewsContent(models.Model):
+    news = models.ForeignKey(News, unique = True, on_delete=models.CASCADE)
+    title = models.CharField (max_length=200)
+    content = models.CharField (max_length=30000)
+    image = models.CharField (max_length=200)
+    locale = models.EnumField (default=1)
+    timestamp = models.DateTimeField (auto_now=True, auto_now_add=True)
+
+class NewsLanuage(models.Model):
     locale = models.EnumField(default=1)
 
     class Meta:
