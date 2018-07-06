@@ -19,12 +19,17 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='post',
-            name='draft',
+            name='disabled',
             field=models.BooleanField(default=True),
         ),
         migrations.AlterField(
             model_name='post',
-            name='slug',
-            field=models.SlugField(),
+            name='audience',
+            field=models.EnumField(),
+        ),
+        migrations.AlterField(
+            model_name='post',
+            name='locale',
+            field=models.EnumField(default=1),
         ),
     ]
