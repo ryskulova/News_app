@@ -22,5 +22,12 @@
         </value>
       </option>
     </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="posts.permissions.rest_framework" />
+        </list>
+      </option>
+    </inspection_tool>
   </profile>
 </component>
