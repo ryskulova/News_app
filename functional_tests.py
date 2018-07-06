@@ -1,6 +1,3 @@
-from selenium import webdriver
-from django.conf import settings
-
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'news.settings')
 
@@ -51,7 +48,7 @@ class NewsAppTest(LiveServerTestCase):
         """
 
         # staff logs into admin page
-        self.browser.get(self.domain+"/admin")
+        self.browser.get(self.domain +"/admin")
         self.browser.find_element_by_id('id_username').send_keys('zhama')
         self.browser.find_element_by_id('id_password').send_keys('qwer1234')
         self.browser.find_element_by_class_name('submit-row').click()
